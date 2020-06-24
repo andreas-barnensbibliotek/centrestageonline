@@ -18,12 +18,14 @@ import { PresentationModule } from './presentation/presentation.module';
 import { RegisterUserComponent } from './centrestage/register-user/register-user.component';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown';
 import { HttpClientModule } from '@angular/common/http';
+import { VideoplayerComponent } from './centrestage/videoplayer/videoplayer.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavbarComponent,
-        RegisterUserComponent
+        RegisterUserComponent,
+        VideoplayerComponent
     ],
     imports: [
         BrowserAnimationsModule,

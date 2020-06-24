@@ -1,3 +1,4 @@
+import { VideoplayerComponent } from './centrestage/videoplayer/videoplayer.component';
 import { RegisterUserComponent } from './centrestage/register-user/register-user.component';
 import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
@@ -37,7 +38,8 @@ const routes: Routes =[
     { path: 'examples/productpage', component: ProductpageComponent },
     { path: 'examples/profile',     component: ProfileComponent },
     { path: 'examples/register',    component: RegisterComponent },
-    { path: 'register',             component: RegisterUserComponent}
+    { path: 'register',             component: RegisterUserComponent},
+    { path: 'video',                component: VideoplayerComponent}
 ];
 
 @NgModule({
