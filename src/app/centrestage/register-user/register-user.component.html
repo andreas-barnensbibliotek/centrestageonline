@@ -20,29 +20,37 @@
                 </div>
                 <div class="col-md-4 mr-auto">
                     <div class="card card-signup">
-                        <div class="card-body">
+                        <div class="card-body" >
                             <h4 class="card-title text-center text-black">Register</h4>
                                
-                            <form  class="form" method="" action="">      
-                                
+                             <form #f="ngForm" (ngSubmit)="skicka(f)" >    
                                 <div class="input-group "[ngClass]="{'input-group-focus':focus0===true}">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"> <i class="fa fa-language" aria-hidden="true"></i></span>
                                     </div>
-                                    <select class="custom-select form-control" id="inputGroupSelect03" (focus)="focus0=true" (blur)="focus0=false">
-                                      <option selected>Choose language</option>
-                                      <option *ngFor="let lang of languageList; let i = index" [value]="languageList[i].id">
-                                        {{lang.name}}
-                                      </option>
+                                    <select [ngModel] name="inputGroupSelect03" #drplang="ngModel" required class="custom-select form-control" id="inputGroupSelect03" (focus)="focus0=true" (blur)="focus0=false">
+                                        <option [ngValue]="null">Choose language</option>
+                                        <option *ngFor="let lang of languageList; let i = index" [value]="languageList[i].id">
+                                            {{lang.name}}
+                                        </option>
                                     </select>
-                                  </div>
-                                
-
+                                    <div *ngIf="drplang.touched && !drplang.valid">
+                                        <div *ngIf="drplang.errors.required" class=" alert-danger">
+                                            måste finnas
+                                        </div>    
+                                    </div>
+                                </div>
+                           
                                 <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
                                   <div class="input-group-prepend">
                                       <span class="input-group-text">  <i class="now-ui-icons users_circle-08"></i></span>
                                   </div>
-                                    <input type="text" class="form-control" placeholder="First Name..." (focus)="focus=true" (blur)="focus=false">
+                                    <input name="firstName" id="firstName" minlength="3" ngModel required #firstName="ngModel" type="text" class="form-control" placeholder="First Name..." (focus)="focus=true" (blur)="focus=false">
+                                    <div *ngIf="firstName.touched && !firstName.valid">
+                                        <div *ngIf="firstName.errors.required" class=" alert-danger">
+                                            måste finnas
+                                        </div>    
+                                    </div>
                                 </div>
                                 <div class="input-group" [ngClass]="{'input-group-focus':focus1===true}">
                                   <div class="input-group-prepend">
@@ -66,7 +74,8 @@
                                     </label>
                                 </div>
                                 <div class="card-footer text-center">
-                                    <a href="#" class="btn btn-primary btn-round btn-lg">Start the onlineguide</a>
+                                   
+                                    <button type="submit" class="btn btn-primary btn-round btn-lg">Start the onlineguide</button>
                                 </div>
                             </form>
                         </div>

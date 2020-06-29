@@ -22,7 +22,8 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { PricingComponent } from './examples/pricing/pricing.component';
 
 const routes: Routes =[
-    { path: '', redirectTo: 'presentation', pathMatch: 'full' },
+    { path: '', redirectTo: 'register', pathMatch: 'full' }, 
+    { path: 'register',             component: RegisterUserComponent},
     { path: 'presentation',         component: PresentationComponent },
     { path: 'components',           component: ComponentsComponent },
     { path: 'sections',             component: SectionsComponent },
@@ -38,7 +39,7 @@ const routes: Routes =[
     { path: 'examples/productpage', component: ProductpageComponent },
     { path: 'examples/profile',     component: ProfileComponent },
     { path: 'examples/register',    component: RegisterComponent },
-    { path: 'register',             component: RegisterUserComponent},
+   
     { path: 'video',                component: VideoplayerComponent}
 ];
 

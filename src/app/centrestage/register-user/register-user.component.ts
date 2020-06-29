@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormControl, Validators} from '@angular/forms'
 import { Global } from '../../models/global';
 import { of } from 'rxjs';
 
@@ -12,21 +13,23 @@ export class RegisterUserComponent implements OnInit {
   dropdownListLanguage = [];
   selectedItemsLanguage = [];
   dropdownListLanguageSettings = {};
-  languageList = [];
+  languageList = null;
   focus;
   focus1;
   focus0;
   focus2;
+  UserRegisterForm;
+  
 
-  constructor( public _global:Global) { 
+  constructor( public _global:Global) {  
     this.languageList= this._global.getUserGuidLanguage();
     of(this._global.getUserGuidLanguage()).subscribe(lang => {
-      this.languageList = lang;
-      console.log("test: " + lang);
-    });
+      this.languageList = lang;      
+    });   
   }
 
   ngOnInit(): void {
+    
   }
 
   // getUserGuidLanguage() {
@@ -37,5 +40,19 @@ export class RegisterUserComponent implements OnInit {
   //     { id: '4', name: 'order 4' }
   //   ];
   // }
+  skicka(f){ // använd detta när man skall skicka formuläret, f = formulärobjektet
+    console.log("händer det nått" +f.value.firstName);
+    console.log("selected " + f.value.inputGroupSelect03)
+      
+      
+   
+  }
 
+
+  // onSubmit(customerData) {
+  //   // Process checkout data here
+  //   console.log( this.UserRegisterForm);
+    
+  //   console.warn('Your order has been submitted', customerData);
+  // }
 }

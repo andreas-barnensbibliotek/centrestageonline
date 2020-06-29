@@ -14,12 +14,12 @@ export class Global {
 
     public getUserGuidLanguage() {
       return [
-        { id: '1', name: 'English' },
-        { id: '2', name: 'Swedish' },
-        { id: '3', name: 'Spainish' },
-        { id: '4', name: 'Polish' },
-        { id: '5', name: 'France' },
-        { id: '6', name: 'German' }
+        { id: '1', name: 'English', type: "EN" },
+        { id: '2', name: 'Swedish', type: "SE" },
+        { id: '3', name: 'Spainish', type: "SP" },
+        { id: '4', name: 'Polish', type: "PL" },
+        { id: '5', name: 'France', type: "FR"  },
+        { id: '6', name: 'German', type: "DE" }
       ];
     }
 

@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
        
     }
     ngOnInit() {
+        localStorage.setItem('userlang',"Sv" );
+        
         var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
             if (this.location.path() !== '/sections') {
