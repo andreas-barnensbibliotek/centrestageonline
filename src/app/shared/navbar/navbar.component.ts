@@ -1,3 +1,4 @@
+import { WpApiService } from './../../../services/wp-Api/wp-api.service';
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
@@ -7,14 +8,16 @@ import { Location, LocationStrategy, PathLocationStrategy } from '@angular/commo
     styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+    private menylist:any = [];
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(public location: Location, private element : ElementRef) {
+    constructor(public location: Location, private element : ElementRef, private wpApi:WpApiService) {
         this.sidebarVisible = false;
     }
 
     ngOnInit() {
+        this.handleMenulocalstorage();
         const navbar: HTMLElement = this.element.nativeElement;
         this.toggleButton = navbar.getElementsByClassName('navbar-toggler')[0];
     }
@@ -63,4 +66,19 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+
+    
+      handleMenulocalstorage(){
+        if (!localStorage.getItem("menu")) {        
+          this.wpApi.getMeny("").subscribe(Response =>{
+            this.menylist =Response;        
+            localStorage.setItem("menu", JSON.stringify(Response));
+            
+            return true;
+          });
+        }else{
+          let storedmeny= JSON.parse(localStorage.getItem("menu"))
+          this.menylist =storedmeny      
+        };
+      }
 }

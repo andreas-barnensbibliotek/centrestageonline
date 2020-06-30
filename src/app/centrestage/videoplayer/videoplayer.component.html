@@ -1,9 +1,9 @@
 <div class="cd-section" id="features">
 <div class="features-3 section-image" style="background-image: url('assets/img/bg22.jpg')">
-    <div class="container">
+    <div class="container" *ngFor="let obj of pagedata">
         <div class="row">
             <div class="col-md-8 ml-auto mr-auto">
-                <h2 class="title">Episode one - Intoduction</h2>
+                <h2 class="title"[innerHtml]="obj.title.rendered"></h2>
             </div>
         </div>
         <div class="row">

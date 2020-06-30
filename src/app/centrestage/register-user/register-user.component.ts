@@ -1,5 +1,5 @@
+
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormControl, Validators} from '@angular/forms'
 import { Global } from '../../models/global';
 import { of } from 'rxjs';
 
@@ -22,6 +22,7 @@ export class RegisterUserComponent implements OnInit {
   
 
   constructor( public _global:Global) {  
+    
     this.languageList= this._global.getUserGuidLanguage();
     of(this._global.getUserGuidLanguage()).subscribe(lang => {
       this.languageList = lang;      

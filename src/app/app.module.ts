@@ -1,3 +1,5 @@
+import { redirectHandler } from './models/redirecthandler';
+import { LocalStorageHandler } from './models/localstorageHandler';
 import { AppGlobalErrorHandler } from './../services/errorhandlers/appGlobalErrorHandler';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // this is needed!
 import { NgModule, ErrorHandler  } from '@angular/core';
@@ -43,6 +45,8 @@ import { VideoplayerComponent } from './centrestage/videoplayer/videoplayer.comp
     ],
     providers: [
         Global,
+        LocalStorageHandler,
+        redirectHandler,
         {provide: ErrorHandler, useClass: AppGlobalErrorHandler}
     ],
     bootstrap: [AppComponent]

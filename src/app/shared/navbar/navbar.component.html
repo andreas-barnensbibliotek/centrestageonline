@@ -12,10 +12,20 @@
         </div>
         <div class="collapse navbar-collapse" data-nav-image="assets/img/blurred-image-1.jpg" data-color="orange">
             <ul class="navbar-nav ml-auto">
+                <li class="nav-item" *ngFor="let menyboj of menylist">
+                    <a routerLinkActive="active" class="nav-link " [routerLink]="['',menyboj.acf.link] ">{{menyboj.title.rendered | uppercase}}</a>
+                </li> 
+
                 <li class="nav-item">
                     <a class="nav-link" [routerLink]="['/video']">
                       <i class="now-ui-icons media-1_button-play"></i>
                       <p>Video</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/register']">
+                      <i class="now-ui-icons files_paper"></i>
+                      <p>Register</p>
                     </a>
                 </li>
                 <li class="nav-item">

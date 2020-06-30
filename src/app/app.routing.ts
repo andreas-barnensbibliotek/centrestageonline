@@ -39,7 +39,7 @@ const routes: Routes =[
     { path: 'examples/productpage', component: ProductpageComponent },
     { path: 'examples/profile',     component: ProfileComponent },
     { path: 'examples/register',    component: RegisterComponent },
-   
+    { path: ':slug',                component: VideoplayerComponent, data: { preload: true, delay: false }},  
     { path: 'video',                component: VideoplayerComponent}
 ];
 
