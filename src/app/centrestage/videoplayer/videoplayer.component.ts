@@ -31,7 +31,9 @@ export class VideoplayerComponent implements OnInit {
   }
   
   handlelocalstorage(pageslug){
-    if (!localStorage.getItem(pageslug)) {        
+    
+    let tmpLSpageslug = localStorage.getItem(pageslug) ;
+    if (!tmpLSpageslug || (tmpLSpageslug.length <=2)) {        
       this.wpApi.getPageSlug(pageslug).subscribe(Response =>{
         this.pagedata =Response;        
         localStorage.setItem(pageslug, JSON.stringify(Response));
@@ -39,7 +41,7 @@ export class VideoplayerComponent implements OnInit {
         return true;
       });
     }else{
-      let testobj= JSON.parse(localStorage.getItem(pageslug))
+      let testobj= JSON.parse(tmpLSpageslug)
       this.pagedata =testobj      
     };
   }

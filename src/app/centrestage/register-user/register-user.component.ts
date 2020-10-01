@@ -42,9 +42,13 @@ export class RegisterUserComponent implements OnInit {
   //   ];
   // }
   skicka(f){ // använd detta när man skall skicka formuläret, f = formulärobjektet
-    console.log("händer det nått" +f.value.firstName);
-    console.log("selected " + f.value.inputGroupSelect03)
-      
+    console.log("Gender: " +f.value.inputGender);
+    console.log("Language " + f.value.language)
+    console.log("inputBefattning: " +f.value.inputBefattning);
+    let postdata {
+      la
+
+    }  
       
    
   }

@@ -71,9 +71,20 @@ export class Global {
 
   }
     
-  
-
   RedirectNotRegisterd(){
     this.router.navigate(['/register']);
   }
+
+  public isEmptyObj = (obj) => {
+    return obj === null || undefined
+        ? true
+        : (() => {
+                for (const prop in obj) {
+                    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
+                        return false;
+                    }
+                }
+                return true;
+            })();
+    };
 }
